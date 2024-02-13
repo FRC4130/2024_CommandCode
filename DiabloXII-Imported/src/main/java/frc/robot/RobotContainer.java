@@ -19,6 +19,7 @@ import frc.robot.commands.JoystickWrist;
 import frc.robot.commands.WristJoystick;
 import frc.robot.commands.climbJoystick;
 import frc.robot.commands.delayButton;
+import frc.robot.commands.delayButtonSlowed;
 import frc.robot.commands.setArmIntakeMode;
 import frc.robot.commands.setIntakeMode;
 import frc.robot.commands.setShooterMode;
@@ -99,6 +100,8 @@ public class RobotContainer {
     //Driver Controller
     joystick.leftTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking).alongWith(new setWristMode(wristSubsystem, wristMode.low)));
     joystick.rightTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.stop).alongWith(new setWristMode(wristSubsystem, wristMode.home)));
+    joystick.rightBumper().whileTrue(new delayButton(intakeSubsystem, shooterSubsystem));
+    joystick.leftBumper().whileTrue(new delayButtonSlowed(intakeSubsystem, shooterSubsystem));
   }
 
   public RobotContainer() {
