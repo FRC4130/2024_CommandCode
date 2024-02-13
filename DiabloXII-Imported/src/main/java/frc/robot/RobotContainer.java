@@ -95,6 +95,10 @@ public class RobotContainer {
     //Both
     //opJoystick.R1().whileTrue(new setIntakeMode(intakeSubsystem, intakeMode.outtaking).alongWith(new setShooterMode(shooterSubsystem, shooterMode.outtakingFast)));
     opJoystick.R2().whileTrue(new delayButton(intakeSubsystem, shooterSubsystem));
+
+    //Driver Controller
+    joystick.leftTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking).alongWith(new setWristMode(wristSubsystem, wristMode.low)));
+    joystick.rightTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.stop).alongWith(new setWristMode(wristSubsystem, wristMode.home)));
   }
 
   public RobotContainer() {
