@@ -38,10 +38,10 @@ public class Wrist extends SubsystemBase{
         wrist.setControl(m_request.withPosition(position));
     }
     
-    public void doMagic(int voltage, int position){
-        final MotionMagicVoltage m_request = new MotionMagicVoltage(voltage);
-        wrist.setControl(m_request.withPosition(position));
-    } 
+    // public void doMagic(int voltage, int position){
+    //     final MotionMagicVoltage m_request = new MotionMagicVoltage(voltage);
+    //     wrist.setControl(m_request.withPosition(position));
+    // } 
 
     public void resetPosition(){
         doMagic(10, 0);
@@ -51,13 +51,13 @@ public class Wrist extends SubsystemBase{
         wrist.set(speed);
     }
     public void home(){
-        doMagic(15, -1.9);
+        doMagic(15, -1);
     }
     public void low(){
-        doMagic(0, -56);
+        doMagic(0, -55);
     }
     public void mid (){
-        doMagic(20, -6.8);
+        doMagic(20, -13.5);
     }
     public void stop(){
         setSpeedWrist(0);

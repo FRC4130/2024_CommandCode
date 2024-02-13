@@ -121,7 +121,9 @@ public class TunerConstants {
     private static final double kBackRightXPosInches = -8.5;
     private static final double kBackRightYPosInches = -8.5;
 
-    
+    //Climb
+    public static final int kClimbID = 51;
+
     //Wrist
     public static final int kWristID = 11;
 
@@ -148,6 +150,25 @@ public class TunerConstants {
     public static final int kIntakeID = 45;
 
     public static enum intakeMode {
+        intaking,
+        outtaking,
+        stop
+    }
+
+    //Arm Wrist
+    public static final int kArmWristID = 50;
+
+    public static enum armWristMode {
+        pos1,
+        pos2,
+        pos3,
+        stop
+    }
+
+    //Arm Intake
+    public static final int kArmIntakeID = 80;
+
+    public static enum armIntakeMode {
         intaking,
         outtaking,
         stop
