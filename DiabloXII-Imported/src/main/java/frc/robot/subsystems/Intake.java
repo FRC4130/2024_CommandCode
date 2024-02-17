@@ -27,6 +27,10 @@ public class Intake extends SubsystemBase{
         setSpeedIntake(-0.25);
     }
 
+    public void outtakingSlow(){
+        setSpeedIntake(-0.1);
+    }
+
     public void stop(){
         setSpeedIntake(0);
     }

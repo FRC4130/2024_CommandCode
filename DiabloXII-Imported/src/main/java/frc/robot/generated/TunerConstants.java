@@ -51,7 +51,7 @@ public class TunerConstants {
     private static final boolean kInvertLeftSide = false;
     private static final boolean kInvertRightSide = true;
 
-    private static final String kCANbusName = "CTRE Chain";
+    public static final String kCANbusName = "CTRE Chain";
     private static final int kPigeonId = 0;
 
 
@@ -152,6 +152,7 @@ public class TunerConstants {
     public static enum intakeMode {
         intaking,
         outtaking,
+        outtakingSlow,
         stop
     }
 
@@ -166,7 +167,7 @@ public class TunerConstants {
     }
 
     //Arm Intake
-    public static final int kArmIntakeID = 80;
+    public static final int kArmIntakeID = 49;
 
     public static enum armIntakeMode {
         intaking,

@@ -2,9 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.generated.TunerConstants.intakeMode;
-import frc.robot.generated.TunerConstants.shooterMode;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Shooter;
 
 public class setIntakeMode extends Command{
     private Intake intakeSub;
@@ -28,6 +26,9 @@ public class setIntakeMode extends Command{
             break;
             case outtaking:
                 intakeSub.outtaking();
+            break;
+            case outtakingSlow:
+                intakeSub.outtakingSlow();
             break;
             case stop:
                 intakeSub.stop();

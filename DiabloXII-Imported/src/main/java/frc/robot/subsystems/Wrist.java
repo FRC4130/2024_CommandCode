@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
-import com.ctre.phoenix6.signals.ControlModeValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -44,7 +43,7 @@ public class Wrist extends SubsystemBase{
     // } 
 
     public void resetPosition(){
-        doMagic(10, 0);
+        wrist.setPosition(-1);
     }
 
     public void setSpeedWrist(double speed){
@@ -57,7 +56,7 @@ public class Wrist extends SubsystemBase{
         doMagic(0, -55);
     }
     public void mid (){
-        doMagic(20, -13.5);
+        doMagic(20, -11.58);
     }
     public void stop(){
         setSpeedWrist(0);
