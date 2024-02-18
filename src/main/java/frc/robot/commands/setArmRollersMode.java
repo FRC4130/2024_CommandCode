@@ -24,9 +24,6 @@ public class setArmRollersMode extends Command{
             case intaking:
                 armRollersSub.intaking();
             break;
-            case outtaking:
-                armRollersSub.outtaking();
-            break;
             case stop:
                 armRollersSub.stop();
             break;
