@@ -4,13 +4,13 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.generated.TunerConstants;
+import frc.robot.Constants;
 
 public class ArmRollers extends SubsystemBase{
     public TalonFX armIntake;
 
     public ArmRollers(){
-        armIntake = new TalonFX(TunerConstants.kArmIntakeID, "CTRE Chain");
+        armIntake = new TalonFX(Constants.kArmIntakeID, "CTRE Chain");
 
         armIntake.setNeutralMode(NeutralModeValue.Coast);
     }

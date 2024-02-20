@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.generated.TunerConstants.wristMode;
+import frc.robot.Constants.wristMode;
 import frc.robot.subsystems.Wrist;
 
 public class setWristMode extends Command{
@@ -28,8 +28,8 @@ public class setWristMode extends Command{
             case low:
                 wristSubsystem.low();
             break; 
-            case mid:
-                wristSubsystem.mid();
+            case exchange:
+                wristSubsystem.exchange();
             break;
             case resetpos:
                 wristSubsystem.resetPosition();

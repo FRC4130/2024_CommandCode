@@ -13,16 +13,18 @@ import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.*;
 import frc.robot.generated.TunerConstants;
-import frc.robot.generated.TunerConstants.armMode;
-import frc.robot.generated.TunerConstants.armRollersMode;
-import frc.robot.generated.TunerConstants.intakeMode;
-import frc.robot.generated.TunerConstants.shooterMode;
-import frc.robot.generated.TunerConstants.wristMode;
+import frc.robot.Constants;
+import frc.robot.Constants.armMode;
+import frc.robot.Constants.armRollersMode;
+import frc.robot.Constants.intakeMode;
+import frc.robot.Constants.shooterMode;
+import frc.robot.Constants.wristMode;
 import frc.robot.subsystems.*;
 
 public class RobotContainer {
@@ -40,6 +42,9 @@ public class RobotContainer {
   private final Climb climbSubsystem = new Climb();
   private final ArmRollers armRollersSubsytem = new ArmRollers();
   private final Arm armSubsystem = new Arm();
+  //BOOLEANS MY ENEMY
+  public static boolean isArmCollapsed = true;
+  public static boolean isWristCollapsed = true;
 
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController joystick = new CommandXboxController(0); // My joystick
@@ -106,19 +111,43 @@ public class RobotContainer {
     //Operator Controller
     //DPAD
     opJoystick.povDown().toggleOnTrue(new setWristMode(wristSubsystem, wristMode.low)); // wrist to pickup/low position
-    opJoystick.povRight().toggleOnTrue(new setWristMode(wristSubsystem, wristMode.mid)); // exchange position wrist
+    opJoystick.povRight().toggleOnTrue(new setWristMode(wristSubsystem, wristMode.exchange)); // exchange position wrist
     opJoystick.povUp().toggleOnTrue(new setWristMode(wristSubsystem, wristMode.home)); // wrist to stored/home position
     opJoystick.povLeft().whileTrue(new setIntakeMode(intakeSubsystem, intakeMode.outtakingSlow)); // intake outtaking slower than default
     //SHAPES
-    opJoystick.square().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos2)); // exchange position amp arm
-    opJoystick.cross().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos3)); // amp/trap position amp arm
-    opJoystick.triangle().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos1)); // home postition amp arm
+    opJoystick.square().toggleOnTrue(new setArmMode(armSubsystem, armMode.exchange)); // exchange position amp arm
+    opJoystick.cross().toggleOnTrue(new setArmMode(armSubsystem, armMode.amp)); // amp/trap position amp arm
+    opJoystick.triangle().toggleOnTrue(new setArmMode(armSubsystem, armMode.home)); // home postition amp arm
     opJoystick.circle().whileTrue(new setArmRollersMode(armRollersSubsytem, armRollersMode.intaking)); //intaking/outaking amp arm
     // //BUMPERS AND TRIGGERS
     // opJoystick.R1().onTrue(new setWristMode(wristSubsystem, wristMode.resetpos)); // wrist home position reset (he thinks this is home when pressed)
     opJoystick.R2().whileTrue(new delayButton(intakeSubsystem, shooterSubsystem)); // Default shoot button - shooter runs then shooter + intake outtakes run together
     // opJoystick.L1().whileTrue(new leftBumper(wristSubsystem, armSubsystem));  // Left bumper command - Wrist low position delayed then amp arm goes home
     // opJoystick.L2().whileTrue(new leftTrigger(wristSubsystem, armSubsystem)); // Left trigger command - Wrist low position delayed, armp arm exchange position delayed, wrist exchange position
+
+    
+    //STUPID BOOLEAN PERMISSIONS AAAAAA
+    //Wrist Permissions
+    opJoystick.povDown().whileTrue(new InstantCommand(() -> {
+      isWristCollapsed = true;
+    }));
+    opJoystick.povUp().whileTrue(new InstantCommand(() -> {
+      isWristCollapsed = true;
+    }));
+    opJoystick.povRight().whileTrue(new InstantCommand(() -> {
+      isWristCollapsed = false;
+    }));
+    //Arm Permissions
+    opJoystick.square().whileTrue(new InstantCommand(() -> {
+      isArmCollapsed = false;
+    }));
+    opJoystick.cross().whileTrue(new InstantCommand(() -> {
+      isArmCollapsed = true;
+    }));
+    opJoystick.circle().whileTrue(new InstantCommand(() -> {
+      isArmCollapsed = true;
+    }));
+
 
     //Driver Controller
     joystick.leftTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking).alongWith(new setWristMode(wristSubsystem, wristMode.low))); // Intake intaking while the wrist goes to low position - runs at the same time

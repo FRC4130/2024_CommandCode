@@ -9,6 +9,8 @@ import edu.wpi.first.math.geometry.Rotation2d;
 /** Add your docs here. */
 public class Constants {
 
+    //tenniswoods code?
+
     public static Rotation2d k_steering_target = new Rotation2d(Math.toRadians(0)); //used by AutoAlignCommand and "y" to rotate to target
     public static boolean k_ShoulderMMisMoving = false;
     public static boolean k_WristMMisMoving = false;
@@ -31,5 +33,60 @@ public class Constants {
     //FiringSolutionSubsystem
     public static double k_LLDistanceToAprilTag = 0.0;
     public static double k_FiringSolutionSpeed = 3600.0;
+
+    //my code
+
+    //Climb
+    public static final int kClimbID = 51;
+
+    //Wrist
+    public static final int kWristID = 11;
+
+    public static enum wristMode {
+        home,
+        low,
+        exchange,
+        resetpos,
+        stop
+      }
+    //Shooter
+    public static final int kRightID = 44;
+    public static final int kLeftID = 42;
+    
+    public static enum shooterMode {
+        outtakingFast,
+        outtakingDefault,
+        outtakingSlow,
+        resetpos,
+        stop
+    }
+
+    //Intake
+    public static final int kIntakeID = 45;
+
+    public static enum intakeMode {
+        intaking,
+        outtaking,
+        outtakingSlow,
+        stop
+    }
+
+    //Arm Wrist
+    public static final int kArmWristID = 50;
+
+    public static enum armMode {
+        home,
+        exchange,
+        amp,
+        stop
+    }
+
+    //Arm Intake
+    public static final int kArmIntakeID = 49;
+
+    public static enum armRollersMode {
+        intaking,
+        stop
+    }
 
 }
