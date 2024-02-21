@@ -57,7 +57,7 @@ public class Wrist extends SubsystemBase{
     public void low(){
         doMagic(0, -55);
     }
-    public void exchange (){
+    public void exchange(){
         doMagic(20, -11.58);
     }
     public void stop(){
