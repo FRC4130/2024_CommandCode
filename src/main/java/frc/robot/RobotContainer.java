@@ -40,6 +40,7 @@ public class RobotContainer {
   private final Climb climbSubsystem = new Climb();
   private final ArmRollers armRollersSubsytem = new ArmRollers();
   private final Arm armSubsystem = new Arm();
+  private final LED ledSubsystem = new LED();
 
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController joystick = new CommandXboxController(0); // My joystick
@@ -168,6 +169,7 @@ public class RobotContainer {
     climbSubsystem.setDefaultCommand(new climbJoystick(climbSubsystem, 
     () -> opJoystick.getLeftY()
     )); // Climb being manually controlled by the Left joystick on the Y axis (vertical)
+    ledSubsystem.setDefaultCommand(new LEDCommand(ledSubsystem));
   }
 
   private void namedcommands() {

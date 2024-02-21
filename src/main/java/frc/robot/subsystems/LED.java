@@ -1,63 +1,66 @@
-// import com.ctre.phoenix.led.CANdle;
-// import com.ctre.phoenix.led.CANdle.LEDStripType;
+package frc.robot.subsystems;
 
-// import edu.wpi.first.wpilibj2.command.SubsystemBase;
-// import frc.robot.generated.TunerConstants;
+import com.ctre.phoenix.led.CANdle;
+import com.ctre.phoenix.led.RainbowAnimation;
+import com.ctre.phoenix.led.CANdle.LEDStripType;
 
-// public class LED extends SubsystemBase{
-//     // // Instance
-//     // private static CANdle mInstance = null;
-
-//     // // CANdle
-//     // private final CANdle mCANdle;
-
-//     // // State
-//     // private LEDState mState;
-
-//     // LED = new AddressableLED(0);
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.generated.TunerConstants;
 
 
-//     // public enum LEDState {
-//     //     IDLE, BALL_DETECT, AIM, PREP_CLIMB, CLIMBY_PARTY_MODE
-//     // }
+public class LED extends SubsystemBase{
+    // Instance
+    private static CANdle mInstance = null;
+    // private DriveTrain mDrive;
+    // private final Climb mClimber;
+    // private final Intake mIntaker;
 
-//     // public LED() {
-//     //     mCANdle.configLEDType(LEDStripType.GRB);
+    // CANdle
+    private final CANdle mCANdle;
 
-//     //     mState = LEDState.IDLE;
-//     // }
+    // State
+    private LEDState mState;
 
-//     // public void Idle(){
-//     //     mCANdle.setLEDs(0, 0, 255);
-//     //     //mCANdle.setLEDs(0, 0, 0);
 
-//     // }
+    public enum LEDState {
+        IDLE, BALL_DETECT, AIM, PREP_CLIMB, CLIMBY_PARTY_MODE
+    }
 
-//     // public void RainbowParty(){
+    public LED() {
+        mCANdle = new CANdle(TunerConstants.kCANbusID, TunerConstants.kCANbusName);
+        mCANdle.configLEDType(LEDStripType.GRB);
 
-//     //     var rainbowAnim = new RainbowParty(1, 1, 255);
+        // mDrive = Subsystems.driveTrain;
+        // mIndexer = Subsystems.index;
+        // mClimber = Subsystems.climb;
 
-//     //     mCANdle.animate(rainbowAnim);
-//     // }
+        mState = LEDState.IDLE;
+    }
 
-//     // public void Tracked(){
-//     //     mCANdle.setLEDs(0, 255, 0);
-//     // }
+    public void Idle(){
+        mCANdle.setLEDs(0, 0, 255);
+        //mCANdle.setLEDs(0, 0, 0);
 
-//     // public void fillIndex(){
-//     //     if(!mIndexer.sensor.isPressed()){
-//     //         mCANdle.setLEDs(255, 0, 0, 0, 0, 50);
-//     //         //mCANdle.setLEDs(255, 0, 0, 0, 125, 50);
-//     //     }
-//     // }
+    }
 
-//     // public void fullIndex(){
+    public void RainbowParty(){
 
-//     //     mCANdle.setLEDs(0, 255, 0);
+        var rainbowAnim = new RainbowAnimation(1, 1, 255);
 
-//     // }
+        mCANdle.animate(rainbowAnim);
+    }
 
-//     // public void flames(){
-//     //     mCANdle.setLEDs(255, 0, 0);
-//     // }
-// }
+    public void Tracked(){
+        mCANdle.setLEDs(0, 255, 0);
+    }
+
+    // public void fullIndex(){
+
+    //     mCANdle.setLEDs(0, 255, 0);
+
+    // }
+
+    public void flames(){
+        mCANdle.setLEDs(255, 0, 0);
+    }
+}
