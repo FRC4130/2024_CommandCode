@@ -11,10 +11,8 @@ public class leftBumper extends SequentialCommandGroup{
     public leftBumper(Wrist wristSub, Arm armSub){
         addCommands(
             new setWristMode(wristSub, wristMode.low).withTimeout(0.5),
-            new ParallelCommandGroup(
-                new setWristMode(wristSub, wristMode.low),
-                new setArmMode(armSub, armMode.pos1)
-            ));
-            
+            new setArmMode(armSub, armMode.pos1).alongWith(new setWristMode(wristSub, wristMode.low)).withTimeout(0.5),
+            new setWristMode(wristSub, wristMode.home).alongWith(new setArmMode(armSub, armMode.pos1))
+        );
         }
     }

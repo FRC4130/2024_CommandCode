@@ -30,6 +30,9 @@ public class setIntakeMode extends Command{
             case outtakingSlow:
                 intakeSub.outtakingSlow();
             break;
+            case autoIntaking:
+                intakeSub.autoIntaking();
+            break;
             case stop:
                 intakeSub.stop();
             break;

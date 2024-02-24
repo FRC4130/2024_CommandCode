@@ -10,8 +10,8 @@ public class leftTrigger extends SequentialCommandGroup{
     public leftTrigger(Wrist wristSub, Arm armSub){
         addCommands(
             new setWristMode(wristSub, wristMode.low).withTimeout(1),
-            new setArmMode(armSub, armMode.pos2).withTimeout(1),
-            new setWristMode(wristSub, wristMode.mid)
+            new setArmMode(armSub, armMode.pos2).alongWith(new setWristMode(wristSub, wristMode.low)).withTimeout(1),
+            new setWristMode(wristSub, wristMode.mid).alongWith(new setArmMode(armSub, armMode.pos2))
         );
     }
 }

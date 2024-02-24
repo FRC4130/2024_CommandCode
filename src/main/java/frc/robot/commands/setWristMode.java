@@ -34,6 +34,9 @@ public class setWristMode extends Command{
             case resetpos:
                 wristSubsystem.resetPosition();
             break;
+            case autoLow:
+                wristSubsystem.autoLow();
+            break;
             case stop:
                 wristSubsystem.stop();
             break; 

@@ -59,6 +59,12 @@ public class Wrist extends SubsystemBase{
     public void mid (){
         doMagic(20, -11.58);
     }
+
+    //AUTO POSITIONS ???
+    public void autoLow(){
+        doMagic(0, -57);
+    }
+    
     public void stop(){
         setSpeedWrist(0);
         home();

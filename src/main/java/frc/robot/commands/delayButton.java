@@ -10,7 +10,7 @@ import frc.robot.subsystems.Shooter;
 public class delayButton extends SequentialCommandGroup{
     public delayButton(Intake intakeSub, Shooter shooterSub){
         addCommands(
-            new setShooterMode(shooterSub, shooterMode.outtakingFast).withTimeout(0.5),
+            new setShooterMode(shooterSub, shooterMode.outtakingFast).withTimeout(0.125),
             new ParallelCommandGroup(
                 new setShooterMode(shooterSub, shooterMode.outtakingFast),
                 new setIntakeMode(intakeSub, intakeMode.outtaking)

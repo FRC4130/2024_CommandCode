@@ -137,8 +137,9 @@ public class TunerConstants {
     public static final CommandSwerveDrivetrain DriveTrain = new CommandSwerveDrivetrain(DrivetrainConstants, FrontLeft,
             FrontRight, BackLeft, BackRight);
 
-             //Climb
+    //Climb
     public static final int kClimbID = 51;
+    public static final int kClimbTwoID = 52;
 
     //Wrist
     public static final int kWristID = 11;
@@ -148,6 +149,7 @@ public class TunerConstants {
         low,
         mid,
         resetpos,
+        autoLow,
         stop
       }
     //Shooter
@@ -170,6 +172,7 @@ public class TunerConstants {
         intaking,
         outtaking,
         outtakingSlow,
+        autoIntaking,
         stop
     }
 

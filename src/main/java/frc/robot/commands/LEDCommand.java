@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.LED;
 
 
@@ -23,11 +24,11 @@ public class LEDCommand extends Command{
     }
 
     public void intialize(){
-        _ledSub.flames();
+        _ledSub.RainbowParty();
     }
 
     public void execute(){
-        _ledSub.flames();
+        _ledSub.LEDS();
     }
 
     public void end(){

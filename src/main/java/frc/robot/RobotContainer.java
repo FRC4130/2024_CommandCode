@@ -7,6 +7,7 @@ package frc.robot;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 import com.ctre.phoenix6.mechanisms.swerve.utility.PhoenixPIDController;
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModule.DriveRequestType;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.util.sendable.SendableRegistry;
@@ -118,8 +119,8 @@ public class RobotContainer {
     // //BUMPERS AND TRIGGERS
     // opJoystick.R1().onTrue(new setWristMode(wristSubsystem, wristMode.resetpos)); // wrist home position reset (he thinks this is home when pressed)
     opJoystick.R2().whileTrue(new delayButton(intakeSubsystem, shooterSubsystem)); // Default shoot button - shooter runs then shooter + intake outtakes run together
-    // opJoystick.L1().whileTrue(new leftBumper(wristSubsystem, armSubsystem));  // Left bumper command - Wrist low position delayed then amp arm goes home
-    // opJoystick.L2().whileTrue(new leftTrigger(wristSubsystem, armSubsystem)); // Left trigger command - Wrist low position delayed, armp arm exchange position delayed, wrist exchange position
+    opJoystick.L1().toggleOnTrue(new leftBumper(wristSubsystem, armSubsystem));  // Left bumper command - Wrist low position delayed then amp arm goes home
+    opJoystick.L2().toggleOnTrue(new leftTrigger(wristSubsystem, armSubsystem)); // Left trigger command - Wrist low position delayed, armp arm exchange position delayed, wrist exchange position
 
     //Driver Controller
     joystick.leftTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking).alongWith(new setWristMode(wristSubsystem, wristMode.low))); // Intake intaking while the wrist goes to low position - runs at the same time
@@ -150,6 +151,16 @@ public class RobotContainer {
     joystick.start().and(joystick.x()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
   }
 
+  //Pathplanner named commands, assigning the named commands in pathplanner with the commands in code
+  private void namedcommands(){
+    //wrist
+    NamedCommands.registerCommand("Wrist Low", new AutoWristLow(wristSubsystem).withTimeout(0.5));
+    //intake
+    NamedCommands.registerCommand("Intake Intaking", new AutoIntakeIntaking(intakeSubsystem).withTimeout(2));
+    NamedCommands.registerCommand("Intake Outtaking", new AutoIntakeOuttaking(intakeSubsystem).withTimeout(2));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(4));
+  }
+
   public RobotContainer() {
     configureBindings();
     namedcommands(); //pathplanner namedcommands
@@ -159,7 +170,7 @@ public class RobotContainer {
     SmartDashboard.putData("Auto Chooser", autochooser);
 
         // ALL COMMANDS ARE BEING RUN ON STARTUP, THIS IS THERE DEFAULT POSITION THEY WILL AUTOMATICALLY GO TO IF NOT BEING TOLD OTHERWISE
-    shooterSubsystem.setDefaultCommand(new setShooterMode(shooterSubsystem, shooterMode.stop)); // shooter not running
+    shooterSubsystem.setDefaultCommand(new setShooterMode(shooterSubsystem, shooterMode.outtakingSlow)); // shooter not running
     intakeSubsystem.setDefaultCommand(new setIntakeMode(intakeSubsystem, intakeMode.stop)); // intake not running
     armRollersSubsytem.setDefaultCommand(new setArmRollersMode(armRollersSubsytem, armRollersMode.stop)); // arm intake not running
     wristSubsystem.setDefaultCommand(new setWristMode(wristSubsystem, wristMode.stop)); // wrist being at home position and not running
@@ -171,19 +182,6 @@ public class RobotContainer {
     )); // Climb being manually controlled by the Left joystick on the Y axis (vertical)
     ledSubsystem.setDefaultCommand(new LEDCommand(ledSubsystem));
   }
-
-  private void namedcommands() {
-  // Register Named Commands for pathplanner to use during autonomous
-  //NamedCommands.registerCommand("Intake", new A_IntakeCommand().withTimeout(5));
-  //NamedCommands.registerCommand("Shoot", new A_ShootCommand().withTimeout(3));
-  //NamedCommands.registerCommand("Home", new A_HomeAllCommand().withTimeout(5));
-  /*
-  NamedCommands.registerCommand("A_Floor", new A_FloorAutoCommand().andThen(new IntakeInCommand().withTimeout(1)));
-  NamedCommands.registerCommand("A_High", new A_HighCommand().andThen(new IntakeOutCommand().withTimeout(1)));
-  NamedCommands.registerCommand("A_Low", new A_LowCommand().andThen(new IntakeOutCommand().withTimeout(1)));
-  NamedCommands.registerCommand("A_Mid", new A_MidCommand().andThen(new IntakeOutCommand().withTimeout(1)));
-  */
-}
 
   public Command getAutonomousCommand() {
     /* First put the drivetrain into auto run mode, then run the auto */

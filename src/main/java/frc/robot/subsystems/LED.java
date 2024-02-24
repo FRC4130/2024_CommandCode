@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.led.CANdle;
 import com.ctre.phoenix.led.RainbowAnimation;
+import com.ctre.phoenix6.signals.ForwardLimitValue;
 import com.ctre.phoenix.led.CANdle.LEDStripType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -62,5 +63,17 @@ public class LED extends SubsystemBase{
 
     public void flames(){
         mCANdle.setLEDs(255, 0, 0);
+    }
+
+    public void green(){
+        mCANdle.setLEDs(0, 255, 0);
+    }
+
+    public void LEDS(){
+        if(Intake.intake.getForwardLimit().getValue() == ForwardLimitValue.ClosedToGround){
+            green();
+        } else{
+            Idle();
+        }
     }
 }
