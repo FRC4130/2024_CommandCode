@@ -166,7 +166,8 @@ public class RobotContainer {
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 3", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(3));
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 4", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(4));
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 5", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(5));
-    
+    NamedCommands.registerCommand("Shoot", new delayButton(intakeSubsystem, shooterSubsystem).withTimeout(0.35));
+    NamedCommands.registerCommand("Auto Shoot", new AutoShoot(intakeSubsystem, shooterSubsystem).withTimeout(0.5));
   }
 
   public RobotContainer() {
