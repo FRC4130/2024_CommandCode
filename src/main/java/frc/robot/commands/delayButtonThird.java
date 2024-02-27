@@ -7,12 +7,12 @@ import frc.robot.generated.TunerConstants.shooterMode;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
-public class delayButtonSlowed extends SequentialCommandGroup{
-    public delayButtonSlowed(Intake intakeSub, Shooter shooterSub){
+public class delayButtonThird extends SequentialCommandGroup{
+    public delayButtonThird(Intake intakeSub, Shooter shooterSub){
         addCommands(
-            new setShooterMode(shooterSub, shooterMode.outtakingDefault).withTimeout(0.125),
+            new setShooterMode(shooterSub, shooterMode.outtakingSlightlyFasterThanSlow).withTimeout(0.125),
             new ParallelCommandGroup(
-                new setShooterMode(shooterSub, shooterMode.outtakingSlow),
+                new setShooterMode(shooterSub, shooterMode.outtakingSlightlyFasterThanSlow),
                 new setIntakeMode(intakeSub, intakeMode.outtaking)
             )
         );

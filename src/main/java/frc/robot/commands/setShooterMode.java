@@ -30,6 +30,9 @@ public class setShooterMode extends Command{
             case outtakingSlow:
                 shooter.outtakingSlow();
             break;
+            case outtakingSlightlyFasterThanSlow:
+                shooter.outtakingSlightlyFasterThanSlow();
+            break;
             case resetpos:
                 shooter.resetpos();
             break;

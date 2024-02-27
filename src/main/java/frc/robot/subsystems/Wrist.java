@@ -57,7 +57,7 @@ public class Wrist extends SubsystemBase{
         doMagic(0, -55);
     }
     public void mid (){
-        doMagic(20, -11.58);
+        doMagic(20, -24);
     }
 
     //AUTO POSITIONS ???

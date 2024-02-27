@@ -160,6 +160,7 @@ public class TunerConstants {
         outtakingFast,
         outtakingDefault,
         outtakingSlow,
+        outtakingSlightlyFasterThanSlow,
         resetpos,
         stop
     }

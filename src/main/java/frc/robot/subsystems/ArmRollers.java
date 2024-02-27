@@ -20,7 +20,7 @@ public class ArmRollers extends SubsystemBase{
     }
 
     public void intaking(){
-        setSpeedArmIntake(0.2);
+        setSpeedArmIntake(0.25);
     }
 
     public void stop(){

@@ -117,14 +117,14 @@ public class RobotContainer {
     opJoystick.triangle().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos1)); // home postition amp arm
     opJoystick.circle().whileTrue(new setArmRollersMode(armRollersSubsytem, armRollersMode.intaking)); //intaking/outaking amp arm
     // //BUMPERS AND TRIGGERS
-    // opJoystick.R1().onTrue(new setWristMode(wristSubsystem, wristMode.resetpos)); // wrist home position reset (he thinks this is home when pressed)
+    opJoystick.R1().toggleOnTrue(new rightBumper(wristSubsystem, armSubsystem, armRollersSubsytem, intakeSubsystem)); // wrist home position reset (he thinks this is home when pressed)
     opJoystick.R2().whileTrue(new delayButton(intakeSubsystem, shooterSubsystem)); // Default shoot button - shooter runs then shooter + intake outtakes run together
     opJoystick.L1().toggleOnTrue(new leftBumper(wristSubsystem, armSubsystem));  // Left bumper command - Wrist low position delayed then amp arm goes home
     opJoystick.L2().toggleOnTrue(new leftTrigger(wristSubsystem, armSubsystem)); // Left trigger command - Wrist low position delayed, armp arm exchange position delayed, wrist exchange position
 
     //Driver Controller
     joystick.leftTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking).alongWith(new setWristMode(wristSubsystem, wristMode.low))); // Intake intaking while the wrist goes to low position - runs at the same time
-    joystick.rightTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.stop).alongWith(new setWristMode(wristSubsystem, wristMode.home))); // intake stops running while the wrist goes to home position - runs at the same time
+    joystick.rightTrigger().whileTrue(new delayButtonThird(intakeSubsystem, shooterSubsystem)); // intake stops running while the wrist goes to home position - runs at the same time
     joystick.rightBumper().whileTrue(new delayButton(intakeSubsystem, shooterSubsystem)); // Default shoot button, see above for further description
     joystick.leftBumper().whileTrue(new delayButtonSlowed(intakeSubsystem, shooterSubsystem)); // Default shoot button but slower
 
@@ -158,7 +158,15 @@ public class RobotContainer {
     //intake
     NamedCommands.registerCommand("Intake Intaking", new AutoIntakeIntaking(intakeSubsystem).withTimeout(2));
     NamedCommands.registerCommand("Intake Outtaking", new AutoIntakeOuttaking(intakeSubsystem).withTimeout(2));
-    NamedCommands.registerCommand("Wrist Low And Intake Intaking", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(4));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 0115", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(0.115));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 0125", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(0.125));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 0135", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(0.135));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 1", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(1));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 2", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(2));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 3", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(3));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 4", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(4));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 5", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(5));
+    
   }
 
   public RobotContainer() {

@@ -55,7 +55,7 @@ public class Arm extends SubsystemBase{
     }
 
     public void pos3(){
-        doMagic(0, -41.23);
+        doMagic(0, -42);
     }
 
     public void stop(){
