@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.352058558662572,
-      "y": 5.556201076038516
+      "x": 0.5087399265707623,
+      "y": 4.0953194633662
     },
     "rotation": 0
   },
@@ -14,19 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "center to center note"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Wrist Low And Intake Intaking 2"
+            "pathName": "wall to rotated shoot v2"
           }
         },
         {
@@ -42,22 +30,53 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "center to far note"
+                  "pathName": "rotated shoot to HP note v2"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 4"
+                  "name": "Wrist Low"
                 }
               }
             ]
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Wrist Low And Intake Intaking 3"
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "far note to center"
+            "pathName": "HP note to rotated shoot v2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "rotated shoot to center note v2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 3"
+                }
+              }
+            ]
           }
         },
         {

@@ -14,19 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "center to center note"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Wrist Low And Intake Intaking 2"
+            "pathName": "center to center shoot v2"
           }
         },
         {

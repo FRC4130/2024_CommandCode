@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.5162029233149377,
-      "y": 6.992827949292262
+      "x": 1.352058558662572,
+      "y": 5.556201076038516
     },
     "rotation": 0
   },
@@ -14,7 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "wall amp to amp rotated shoot"
+            "pathName": "center to center shoot v2"
           }
         },
         {
@@ -24,13 +24,19 @@
           }
         },
         {
-          "type": "sequential",
+          "type": "named",
+          "data": {
+            "name": "Wrist Low"
+          }
+        },
+        {
+          "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "amp rotated shoot to amp note"
+                  "pathName": "center shoot to center note v2"
                 }
               },
               {
@@ -40,12 +46,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "amp note to amp rotated shoot"
           }
         },
         {
@@ -61,28 +61,22 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "amp rotated shoot to amp far note"
+                  "pathName": "center to far note v2"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low"
+                  "name": "Wrist Low And Intake Intaking 4"
                 }
               }
             ]
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Wrist Low And Intake Intaking 2"
-          }
-        },
-        {
           "type": "path",
           "data": {
-            "pathName": "amp far note to amp rotated shoot"
+            "pathName": "far note to center v2"
           }
         },
         {

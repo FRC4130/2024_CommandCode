@@ -14,7 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "wall to rotated shoot"
+            "pathName": "wall to rotated shoot v2"
           }
         },
         {
@@ -30,7 +30,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "rotated shoot to far note"
+                  "pathName": "rotated shoot to far note v2"
                 }
               },
               {
@@ -51,7 +51,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "far note to rotated shoot"
+            "pathName": "far note to rotated shoot v2"
           }
         },
         {

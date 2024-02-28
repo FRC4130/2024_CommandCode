@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.512,
-      "y": 4.1
+      "x": 0.5162029233149377,
+      "y": 6.992827949292262
     },
     "rotation": 0
   },
@@ -14,7 +14,38 @@
         {
           "type": "path",
           "data": {
-            "pathName": "wall to rotated shoot"
+            "pathName": "wall amp to amp rotated shoot v2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "amp rotated shoot to amp note v2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp note to amp rotated shoot v2"
           }
         },
         {
@@ -30,7 +61,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "rotated shoot to far note"
+                  "pathName": "amp rotated shoot to amp far note v2"
                 }
               },
               {
@@ -51,44 +82,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "far note to rotated shoot"
+            "pathName": "amp far note to amp rotated shoot v2"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "Auto Shoot"
-          }
-        },
-        {
-          "type": "sequential",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "rotated shoot to HP note"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Low And Intake Intaking 2"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "HP note to rotated shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
           }
         }
       ]
