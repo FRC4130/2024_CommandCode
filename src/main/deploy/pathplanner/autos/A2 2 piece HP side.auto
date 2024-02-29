@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.352058558662572,
-      "y": 5.556201076038516
+      "x": 0.5053379907329615,
+      "y": 4.081259900411539
     },
     "rotation": 0
   },
@@ -14,13 +14,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "center to center shoot v2"
+            "pathName": "wall to rotated shoot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Auto Shoot"
+            "name": "Shoot"
           }
         },
         {
@@ -36,7 +36,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "center shoot to center note v2"
+                  "pathName": "rotated shoot to HP note"
                 }
               },
               {
@@ -49,34 +49,9 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "center to far note v2"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Low And Intake Intaking 4"
-                }
-              }
-            ]
-          }
-        },
-        {
           "type": "path",
           "data": {
-            "pathName": "far note to center v2"
+            "pathName": "HP note to rotated shoot"
           }
         },
         {

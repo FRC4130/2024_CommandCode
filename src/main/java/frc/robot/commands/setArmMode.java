@@ -31,6 +31,9 @@ public class setArmMode extends Command{
             case pos3:
                 armSubsystem.pos3();
             break;
+            case resetPos:
+                armSubsystem.resetPos();
+            break;
             case stop:
                 armSubsystem.stop();
             break; 

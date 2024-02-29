@@ -2,19 +2,26 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.512,
-      "y": 4.1
+      "x": 1.3966769976295312,
+      "y": 7.292819146208364
     },
-    "rotation": 0
+    "rotation": 0.0
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "wall to rotated shoot v2"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Amp start shoot then note"
+                }
+              }
+            ]
           }
         },
         {
@@ -28,30 +35,18 @@
           "data": {
             "commands": [
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "rotated shoot to far note v2"
+                  "name": "Wrist Wait Intake 1"
                 }
               },
               {
-                "type": "named",
+                "type": "path",
                 "data": {
-                  "name": "Wrist Low"
+                  "pathName": "Amp note to shoot"
                 }
               }
             ]
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Wrist Low And Intake Intaking 3"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "far note to rotated shoot v2"
           }
         },
         {

@@ -14,8 +14,8 @@ public class rightBumper extends SequentialCommandGroup{
         addCommands(
             new setWristMode(wristSub, wristMode.mid).withTimeout(1.5),
             new setArmMode(armSub, armMode.pos3).withTimeout(1),
-            new setWristMode(wristSub, wristMode.home).alongWith(new setArmMode(armSub, armMode.pos3)).withTimeout(0.1),
-            new setArmRollersMode(armRollersSub, armRollersMode.intaking).alongWith(new setArmMode(armSub, armMode.pos3))
+            new setWristMode(wristSub, wristMode.home).alongWith(new setArmMode(armSub, armMode.pos3))
+           // new setArmRollersMode(armRollersSub, armRollersMode.intaking).alongWith(new setArmMode(armSub, armMode.pos3))
         );
     }
 }

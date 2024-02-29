@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.5087399265707623,
-      "y": 4.0953194633662
+      "x": 1.3089291736778261,
+      "y": 5.531335051274091
     },
     "rotation": 0
   },
@@ -14,7 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "wall to rotated shoot v2"
+            "pathName": "Center to shoot"
           }
         },
         {
@@ -28,30 +28,30 @@
           "data": {
             "commands": [
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "rotated shoot to HP note v2"
+                  "name": "Wrist Wait Intake"
                 }
               },
               {
-                "type": "named",
+                "type": "path",
                 "data": {
-                  "name": "Wrist Low"
+                  "pathName": "shoot to center note"
                 }
               }
             ]
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Wrist Low And Intake Intaking 3"
+            "pathName": "note to shoot"
           }
         },
         {
-          "type": "path",
+          "type": "wait",
           "data": {
-            "pathName": "HP note to rotated shoot v2"
+            "waitTime": 1.0
           }
         },
         {

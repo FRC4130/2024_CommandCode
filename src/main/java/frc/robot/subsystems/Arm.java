@@ -17,16 +17,16 @@ public class Arm extends SubsystemBase{
         armWrist.setNeutralMode(NeutralModeValue.Brake);
         var talonFXConfigs = new TalonFXConfiguration();
         var slot0Configs = talonFXConfigs.Slot0;
-        slot0Configs.kS = 0.25;
-        slot0Configs.kV = 0.12;
-        slot0Configs.kA = 0.01;
-        slot0Configs.kP = 4.8;
+        slot0Configs.kS = 0;
+        slot0Configs.kV = 0;
+        slot0Configs.kA = 0;
+        slot0Configs.kP = 1.75;
         slot0Configs.kI = 0;
         slot0Configs.kD = 0.1;
 
         var motionMagicConfigs = talonFXConfigs.MotionMagic;
-        motionMagicConfigs.MotionMagicCruiseVelocity = 80;
-        motionMagicConfigs.MotionMagicAcceleration = 160;
+        motionMagicConfigs.MotionMagicCruiseVelocity = 30;
+        motionMagicConfigs.MotionMagicAcceleration = 45; //160
         motionMagicConfigs.MotionMagicJerk = 1600;
 
         armWrist.getConfigurator().apply(talonFXConfigs);
@@ -47,15 +47,19 @@ public class Arm extends SubsystemBase{
     }
 
     public void pos1(){
-        doMagic(0, 0.29);
+        doMagic(0, 0);
     }
 
     public void pos2(){
-        doMagic(0, -27);
+        doMagic(0, -1.4); //-27
     }
 
     public void pos3(){
-        doMagic(0, -42);
+        doMagic(0, -1.8); //-42
+    }
+
+    public void resetPos(){
+        armWrist.setPosition(0);
     }
 
     public void stop(){

@@ -3,31 +3,31 @@ package frc.robot.commands;
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Wrist;
 
 public class JoystickWrist extends Command{
-    private Arm armWristSubsystem;
+    private Wrist wristSubsystem;
     private DoubleSupplier speed;
 
-    public JoystickWrist(Arm armWristSubsystem, DoubleSupplier speed){
-        this.armWristSubsystem = armWristSubsystem;
+    public JoystickWrist(Wrist wristSubsystem, DoubleSupplier speed){
+        this.wristSubsystem = wristSubsystem;
         this.speed = speed;
 
-        addRequirements(armWristSubsystem);
+        addRequirements(wristSubsystem);
     }
 
     @Override
     public void initialize() {
-        armWristSubsystem.setSpeedArmWrist(0);
+        wristSubsystem.setSpeedWrist(0);
     }
 
     @Override
     public void execute() {
-        armWristSubsystem.setSpeedArmWrist(speed.getAsDouble()*0.25);
+        wristSubsystem.setSpeedWrist(speed.getAsDouble()*0.25);
     }
 
     @Override
     public void end(boolean interrupted) {
-        armWristSubsystem.setSpeedArmWrist(0);
+        wristSubsystem.setSpeedWrist(0);
     }
 }

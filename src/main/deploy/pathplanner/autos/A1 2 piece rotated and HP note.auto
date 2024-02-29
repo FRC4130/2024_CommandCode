@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.5162029233149377,
-      "y": 6.992827949292262
+      "x": 0.5053379907329615,
+      "y": 4.081259900411539
     },
     "rotation": 0
   },
@@ -14,29 +14,29 @@
         {
           "type": "path",
           "data": {
-            "pathName": "wall amp to amp rotated shoot v2"
+            "pathName": "wall to rotated shoot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Auto Shoot"
+            "name": "Shoot"
           }
         },
         {
-          "type": "sequential",
+          "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "amp rotated shoot to amp note v2"
+                  "pathName": "rotated shoot to far HP note"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 2"
+                  "name": "Wrist Low And Intake Intaking 4"
                 }
               }
             ]
@@ -45,7 +45,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "amp note to amp rotated shoot v2"
+            "pathName": "far HP note to rotated shoot"
           }
         },
         {

@@ -184,6 +184,7 @@ public class TunerConstants {
         pos1,
         pos2,
         pos3,
+        resetPos,
         stop
     }
 
