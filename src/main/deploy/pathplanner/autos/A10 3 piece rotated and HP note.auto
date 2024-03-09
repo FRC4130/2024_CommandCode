@@ -55,9 +55,40 @@
           }
         },
         {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Wait Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "amp 2nd shot to note"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "rotated shoot to midpoint"
+            "pathName": "amp 3rd note to shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
           }
         }
       ]

@@ -5,15 +5,15 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.generated.TunerConstants;
+import frc.robot.Constants;
 
 public class Climb extends SubsystemBase{
     TalonFX climb;
     TalonFX climbTwo;
 
     public Climb(){
-        climb = new TalonFX(TunerConstants.kClimbID, "CTRE Chain");
-        climbTwo = new TalonFX(TunerConstants.kClimbTwoID, "CTRE Chain");
+        climb = new TalonFX(Constants.kClimbID, "CTRE Chain");
+        climbTwo = new TalonFX(Constants.kClimbTwoID, "CTRE Chain");
         climb.setNeutralMode(NeutralModeValue.Brake);
         climb.setNeutralMode(NeutralModeValue.Brake);
 

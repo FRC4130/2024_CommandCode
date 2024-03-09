@@ -35,7 +35,7 @@ public class TunerConstants {
 
     // The stator current at which the wheels start to slip;
     // This needs to be tuned to your individual robot
-    private static final double kSlipCurrentA = 65.0; //originally 300
+    private static final double kSlipCurrentA = 300.0;
 
     // Theoretical free speed (m/s) at 12v applied output;
     // This needs to be tuned to your individual robot
@@ -53,8 +53,7 @@ public class TunerConstants {
     private static final boolean kInvertLeftSide = false;
     private static final boolean kInvertRightSide = true;
 
-    public static final String kCANbusName = "CTRE Chain";
-    public static final int kCANbusID = 0;
+    private static final String kCANbusName = "CTRE Chain";
     private static final int kPigeonId = 0;
 
 
@@ -92,7 +91,7 @@ public class TunerConstants {
     private static final int kFrontLeftDriveMotorId = 1;
     private static final int kFrontLeftSteerMotorId = 4;
     private static final int kFrontLeftEncoderId = 1;
-    private static final double kFrontLeftEncoderOffset = -0.411865234375;
+    private static final double kFrontLeftEncoderOffset = -0.2939453125;
 
     private static final double kFrontLeftXPosInches = 11;
     private static final double kFrontLeftYPosInches = 11;
@@ -101,7 +100,7 @@ public class TunerConstants {
     private static final int kFrontRightDriveMotorId = 7;
     private static final int kFrontRightSteerMotorId = 5;
     private static final int kFrontRightEncoderId = 3;
-    private static final double kFrontRightEncoderOffset = -0.49755859375;
+    private static final double kFrontRightEncoderOffset = -0.49658203125;
 
     private static final double kFrontRightXPosInches = 11;
     private static final double kFrontRightYPosInches = -11;
@@ -110,7 +109,7 @@ public class TunerConstants {
     private static final int kBackLeftDriveMotorId = 3;
     private static final int kBackLeftSteerMotorId = 0;
     private static final int kBackLeftEncoderId = 2;
-    private static final double kBackLeftEncoderOffset = -0.260986328125;
+    private static final double kBackLeftEncoderOffset = -0.331298828125;
 
     private static final double kBackLeftXPosInches = -11;
     private static final double kBackLeftYPosInches = 11;
@@ -119,7 +118,7 @@ public class TunerConstants {
     private static final int kBackRightDriveMotorId = 2;
     private static final int kBackRightSteerMotorId = 6;
     private static final int kBackRightEncoderId = 0;
-    private static final double kBackRightEncoderOffset = 0.47119140625;
+    private static final double kBackRightEncoderOffset = 0.46630859375;
 
     private static final double kBackRightXPosInches = -11;
     private static final double kBackRightYPosInches = -11;
@@ -136,65 +135,4 @@ public class TunerConstants {
 
     public static final CommandSwerveDrivetrain DriveTrain = new CommandSwerveDrivetrain(DrivetrainConstants, FrontLeft,
             FrontRight, BackLeft, BackRight);
-
-    //Climb
-    public static final int kClimbID = 51;
-    public static final int kClimbTwoID = 52;
-
-    //Wrist
-    public static final int kWristID = 11;
-
-    public static enum wristMode {
-        home,
-        low,
-        mid,
-        resetpos,
-        autoLow,
-        stop
-      }
-    //Shooter
-    public static final int kRightID = 44;
-    public static final int kLeftID = 42;
-    
-    public static enum shooterMode {
-        outtakingFast,
-        outtakingDefault,
-        outtakingSlow,
-        outtakingSlightlyFasterThanSlow,
-        resetpos,
-        stop
-    }
-
-    //Intake
-    public static final int kIntakeID = 45;
-    
-
-    public static enum intakeMode {
-        intaking,
-        outtaking,
-        outtakingSlow,
-        autoIntaking,
-        stop
-    }
-
-    //Arm Wrist
-    public static final int kArmWristID = 50;
-
-    public static enum armMode {
-        pos1,
-        pos2,
-        pos3,
-        resetPos,
-        stop
-    }
-
-    //Arm Intake
-    public static final int kArmIntakeID = 49;
-
-    public static enum armRollersMode {
-        intaking,
-        outtaking,
-        stop
-    }
-
 }

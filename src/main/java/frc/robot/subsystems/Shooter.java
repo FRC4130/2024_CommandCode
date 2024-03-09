@@ -4,6 +4,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.generated.TunerConstants;
 
 public class Shooter extends SubsystemBase{
@@ -11,8 +12,8 @@ public class Shooter extends SubsystemBase{
     public TalonFX left;
 
     public Shooter(){
-        right = new TalonFX(TunerConstants.kRightID, "CTRE Chain");
-        left = new TalonFX(TunerConstants.kLeftID, "CTRE Chain");
+        right = new TalonFX(Constants.kRightID, "CTRE Chain");
+        left = new TalonFX(Constants.kLeftID, "CTRE Chain");
 
         right.setNeutralMode(NeutralModeValue.Coast);
         left.setNeutralMode(NeutralModeValue.Coast);
@@ -38,7 +39,7 @@ public class Shooter extends SubsystemBase{
     }
 
     public void outtakingSlightlyFasterThanSlow(){
-        setSpeedShooter(0.5, 0.5);
+        setSpeedShooter(0.25, 0.25);
     }
 
     public void resetpos(){}

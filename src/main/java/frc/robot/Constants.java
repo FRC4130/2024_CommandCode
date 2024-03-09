@@ -32,4 +32,66 @@ public class Constants {
     public static double k_LLDistanceToAprilTag = 0.0;
     public static double k_FiringSolutionSpeed = 3600.0;
 
+    //Climb
+    public static final int kClimbID = 51;
+    public static final int kClimbTwoID = 52;
+
+    //Wrist
+    public static final int kWristID = 11;
+
+    public static enum wristMode {
+        home,
+        low,
+        mid,
+        resetpos,
+        autoLow,
+        stop
+      }
+    //Shooter
+    public static final int kRightID = 44;
+    public static final int kLeftID = 42;
+    
+    public static enum shooterMode {
+        outtakingFast,
+        outtakingDefault,
+        outtakingSlow,
+        outtakingSlightlyFasterThanSlow,
+        resetpos,
+        stop
+    }
+
+    //Intake
+    public static final int kIntakeID = 45;
+    
+
+    public static enum intakeMode {
+        intaking,
+        outtaking,
+        outtakingSlow,
+        autoIntaking,
+        stop
+    }
+
+    //Arm Wrist
+    public static final int kArmWristID = 50;
+
+    public static enum armMode {
+        pos1,
+        pos2,
+        pos3,
+        resetPos,
+        stop
+    }
+
+    //Arm Intake
+    public static final int kArmIntakeID = 49;
+
+    public static enum armRollersMode {
+        intaking,
+        outtaking,
+        stop
+    }
+
+    public static final int kCANbusID = 0;
+
 }

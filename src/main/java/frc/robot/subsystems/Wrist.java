@@ -7,6 +7,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.generated.TunerConstants;
 
 public class Wrist extends SubsystemBase{
@@ -14,7 +15,7 @@ public class Wrist extends SubsystemBase{
 
 
     public Wrist(){
-        wrist = new TalonFX(TunerConstants.kWristID, "CTRE Chain");
+        wrist = new TalonFX(Constants.kWristID, "CTRE Chain");
         wrist.setNeutralMode(NeutralModeValue.Brake);
         var talonFXConfigs = new TalonFXConfiguration();
         var slot0Configs = talonFXConfigs.Slot0;
@@ -44,17 +45,17 @@ public class Wrist extends SubsystemBase{
     // } 
 
     public void resetPosition(){
-        wrist.setPosition(-1);
+        wrist.setPosition(0);
     }
 
     public void setSpeedWrist(double speed){
         wrist.set(speed);
     }
     public void home(){
-        doMagic(15, -1);
+        doMagic(15, 0);
     }
     public void low(){
-        doMagic(0, -55);
+        doMagic(0, -32.77); //55
     }
     public void mid (){
         doMagic(20, -24);
@@ -62,7 +63,7 @@ public class Wrist extends SubsystemBase{
 
     //AUTO POSITIONS ???
     public void autoLow(){
-        doMagic(0, -57);
+        doMagic(0, -34);
     }
     
     public void stop(){

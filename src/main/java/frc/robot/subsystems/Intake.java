@@ -5,6 +5,7 @@ import com.ctre.phoenix6.signals.ForwardLimitValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.generated.TunerConstants;
 
 public class Intake extends SubsystemBase{
@@ -12,7 +13,7 @@ public class Intake extends SubsystemBase{
     private LED ledSub;
 
     public Intake(){
-        intake = new TalonFX(TunerConstants.kIntakeID, "CTRE Chain");
+        intake = new TalonFX(Constants.kIntakeID, "CTRE Chain");
         ledSub = new LED();
 
         intake.setNeutralMode(NeutralModeValue.Coast);

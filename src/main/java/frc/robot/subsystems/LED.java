@@ -6,6 +6,7 @@ import com.ctre.phoenix6.signals.ForwardLimitValue;
 import com.ctre.phoenix.led.CANdle.LEDStripType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.generated.TunerConstants;
 
 
@@ -28,7 +29,7 @@ public class LED extends SubsystemBase{
     }
 
     public LED() {
-        mCANdle = new CANdle(TunerConstants.kCANbusID, TunerConstants.kCANbusName);
+        mCANdle = new CANdle(Constants.kCANbusID, "CTRE Chain");
         mCANdle.configLEDType(LEDStripType.GRB);
 
         // mDrive = Subsystems.driveTrain;

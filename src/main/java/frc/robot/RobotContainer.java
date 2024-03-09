@@ -19,11 +19,11 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.*;
 import frc.robot.generated.TunerConstants;
-import frc.robot.generated.TunerConstants.armMode;
-import frc.robot.generated.TunerConstants.armRollersMode;
-import frc.robot.generated.TunerConstants.intakeMode;
-import frc.robot.generated.TunerConstants.shooterMode;
-import frc.robot.generated.TunerConstants.wristMode;
+import frc.robot.Constants.armMode;
+import frc.robot.Constants.armRollersMode;
+import frc.robot.Constants.intakeMode;
+import frc.robot.Constants.shooterMode;
+import frc.robot.Constants.wristMode;
 import frc.robot.subsystems.*;
 
 public class RobotContainer {

@@ -2,25 +2,19 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.5053379907329615,
-      "y": 4.081259900411539
+      "x": 1.3966769976295312,
+      "y": 7.292819146208364
     },
-    "rotation": 0
+    "rotation": 0.0
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "wait",
           "data": {
-            "pathName": "wall to rotated shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
+            "waitTime": 8.0
           }
         },
         {
@@ -30,22 +24,10 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "rotated shoot to far HP note"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Low And Intake Intaking 4"
+                  "pathName": "Amp start shoot then note"
                 }
               }
             ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "far HP note to rotated shoot"
           }
         },
         {
@@ -55,9 +37,28 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "rotated shoot to midpoint"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Wait Intake 1"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Amp note to shoot"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
           }
         }
       ]

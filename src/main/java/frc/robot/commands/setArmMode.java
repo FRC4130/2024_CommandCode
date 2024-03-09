@@ -2,7 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Arm;
-import frc.robot.generated.TunerConstants.armMode;
+import frc.robot.Constants.armMode;
 
 public class setArmMode extends Command{
     public Arm armSubsystem;
