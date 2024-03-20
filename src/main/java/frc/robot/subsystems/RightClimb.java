@@ -7,25 +7,29 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class Climb extends SubsystemBase{
+public class RightClimb extends SubsystemBase{
     TalonFX climb;
-    TalonFX climbTwo;
 
-    public Climb(){
+    public RightClimb(){
         climb = new TalonFX(Constants.kClimbID, "CTRE Chain");
-        climbTwo = new TalonFX(Constants.kClimbTwoID, "CTRE Chain");
         climb.setNeutralMode(NeutralModeValue.Brake);
-        climb.setNeutralMode(NeutralModeValue.Brake);
-
-        climbTwo.setInverted(true);
     }
 
     public void setSpeedClimb(double speed){
         climb.set(speed);
-        climbTwo.set(speed);
+        
     }
 
-    public void setSpeedClimbZero(){
+    public void upClimb(){
+        setSpeedClimb(0.5);
+    }
+
+    public void downClimb(){
+        setSpeedClimb(-0.5);
+    }
+
+    public void stop(){
         setSpeedClimb(0);
     }
+
 }

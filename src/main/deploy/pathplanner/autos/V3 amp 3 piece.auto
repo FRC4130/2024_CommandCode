@@ -2,15 +2,27 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.172432558641841,
-      "y": 6.854080026449839
+      "x": 1.4,
+      "y": 7.29
     },
-    "rotation": 51.546290783294026
+    "rotation": 0
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "V3 Amp wall to rotated shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
         {
           "type": "named",
           "data": {
@@ -22,15 +34,15 @@
           "data": {
             "commands": [
               {
-                "type": "named",
+                "type": "path",
                 "data": {
-                  "name": "Wrist Wait Intake"
+                  "pathName": "V3 rotated shoot to Amp note"
                 }
               },
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "shoot to note 1"
+                  "name": "Wrist Low And Intake Intaking 2"
                 }
               }
             ]
@@ -39,7 +51,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "note 2 to shoot"
+            "pathName": "V3 Amp Note to Rotated Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
           }
         },
         {
@@ -49,19 +67,19 @@
           }
         },
         {
-          "type": "sequential",
+          "type": "parallel",
           "data": {
             "commands": [
               {
-                "type": "named",
+                "type": "path",
                 "data": {
-                  "name": "Wrist Wait Intake"
+                  "pathName": "V3 rotated shoot to center note"
                 }
               },
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "a shoot to note 2"
+                  "name": "Wrist Wait Intake 1"
                 }
               }
             ]
@@ -70,38 +88,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "a note 2 to shoot center"
+            "pathName": "V3 center note to shoot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Auto Shoot"
-          }
-        },
-        {
-          "type": "sequential",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Wait Intake"
-                }
-              },
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "center shoot to note 4"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "a note 3 to shoot"
+            "name": "Auto Align"
           }
         },
         {
@@ -113,6 +106,6 @@
       ]
     }
   },
-  "folder": null,
+  "folder": "V3",
   "choreoAuto": false
 }

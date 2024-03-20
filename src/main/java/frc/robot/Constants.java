@@ -31,10 +31,23 @@ public class Constants {
     //FiringSolutionSubsystem
     public static double k_LLDistanceToAprilTag = 0.0;
     public static double k_FiringSolutionSpeed = 3600.0;
+    public static double k_drive_target;
 
     //Climb
     public static final int kClimbID = 51;
     public static final int kClimbTwoID = 52;
+
+    public static enum climbMode{
+        upClimb,
+        downClimb,
+        stop
+    }
+
+    public static enum climbTwoMode{
+        upClimbTwo,
+        downClimbTwo,
+        stop
+    }
 
     //Wrist
     public static final int kWristID = 11;

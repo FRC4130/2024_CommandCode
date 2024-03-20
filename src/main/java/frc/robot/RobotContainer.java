@@ -20,7 +20,8 @@ import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.*;
 import frc.robot.generated.TunerConstants;
 import frc.robot.Constants.armMode;
-import frc.robot.Constants.armRollersMode;
+import frc.robot.Constants.climbMode;
+import frc.robot.Constants.climbTwoMode;
 import frc.robot.Constants.intakeMode;
 import frc.robot.Constants.shooterMode;
 import frc.robot.Constants.wristMode;
@@ -29,7 +30,7 @@ import frc.robot.subsystems.*;
 public class RobotContainer {
   private double MaxSpeed = TunerConstants.kSpeedAt12VoltsMps; // kSpeedAt12VoltsMps desired top speed
   private double MinSpeed = TunerConstants.kSpeedAt12VoltsMps / 2; // min speed used during go slow
-  private double MaxAngularRate = 1.5 * Math.PI; // 3/4 of a rotation per second max angular velocity
+  private double MaxAngularRate = 2.5 * Math.PI; // 3/4 of a rotation per second max angular velocity  1.5
   private double POVSpeed = TunerConstants.kSpeedAt12VoltsMps / 6; //min speed used with POV buttons
 
 
@@ -38,8 +39,8 @@ public class RobotContainer {
     private final Shooter shooterSubsystem = new Shooter();
   private final Wrist wristSubsystem = new Wrist();
   private final Intake intakeSubsystem = new Intake();
-  private final Climb climbSubsystem = new Climb();
-  private final ArmRollers armRollersSubsytem = new ArmRollers();
+  private final RightClimb rightClimbSubsystem = new RightClimb();
+  private final LeftClimb leftClimbSubsystem = new LeftClimb();
   private final Arm armSubsystem = new Arm();
   private final LED ledSubsystem = new LED();
 
@@ -91,11 +92,11 @@ public class RobotContainer {
 
     //AutoAlign to apriltag
     //fieldcentricfacingangle.HeadingController can be found in the POV button section
-    joystick.rightStick().whileTrue(drivetrain.applyRequest(() -> fieldcentricfacingangle.withVelocityX(-joystick.getLeftY() * MaxSpeed)
+    joystick.rightStick().whileTrue(drivetrain.applyRequest(() -> fieldcentricfacingangle.withVelocityX(-Constants.k_drive_target)
                                         .withVelocityY(-joystick.getLeftX() * MaxSpeed)
                                         .withTargetDirection(Constants.k_steering_target) //this would be the angle to line up with
                                         ).ignoringDisable(true))
-                                        .whileTrue(new AutoAlignCommand(drivetrain));
+                                        .whileTrue(new AutoAlignCommand(drivetrain).repeatedly());
 
        // reset the field-centric heading on left bumper press
     joystick.back().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldRelative()));
@@ -113,16 +114,17 @@ public class RobotContainer {
     opJoystick.povLeft().whileTrue(new setIntakeMode(intakeSubsystem, intakeMode.outtakingSlow)); // intake outtaking slower than default
     //SHAPES
     opJoystick.square().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos2)); // exchange position amp arm
-    opJoystick.cross().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos3)); // amp/trap position amp arm
-    opJoystick.triangle().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos1)); // home postition amp arm
-    //opJoystick.circle().whileTrue(new setArmRollersMode(armRollersSubsytem, armRollersMode.intaking)); //intaking/outaking amp arm
-    // //BUMPERS AND TRIGGERS
-    opJoystick.R1().toggleOnTrue(new rightBumper(wristSubsystem, armSubsystem, armRollersSubsytem, intakeSubsystem)); // wrist home position reset (he thinks this is home when pressed)
-    opJoystick.R2().whileTrue(new delayButton(intakeSubsystem, shooterSubsystem)); // Default shoot button - shooter runs then shooter + intake outtakes run together
-    opJoystick.L1().toggleOnTrue(new leftBumper(wristSubsystem, armSubsystem));  // Left bumper command - Wrist low position delayed then amp arm goes home
-    opJoystick.L2().toggleOnTrue(new leftTrigger(wristSubsystem, armSubsystem)); // Left trigger command - Wrist low position delayed, armp arm exchange position delayed, wrist exchange position
-    //START AND OPTIONS
-    opJoystick.share().onTrue(new setWristMode(wristSubsystem, wristMode.resetpos).alongWith(new setArmMode(armSubsystem, armMode.resetPos)));
+    opJoystick.triangle().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos3)); // amp/trap position amp arm
+    opJoystick.cross().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos1)); // home postition amp arm
+    opJoystick.circle().whileTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking));
+    //BUMPERS AND TRIGGERS
+    opJoystick.L1().whileTrue(new setLeftClimbMode(leftClimbSubsystem, climbTwoMode.upClimbTwo));
+    opJoystick.L2().whileTrue(new setLeftClimbMode(leftClimbSubsystem, climbTwoMode.downClimbTwo));
+    opJoystick.R1().whileTrue(new setRightClimbMode(rightClimbSubsystem, climbMode.upClimb));
+    opJoystick.R2().whileTrue(new setRightClimbMode(rightClimbSubsystem, climbMode.downClimb));
+    //SHARE N OPTIONS
+    opJoystick.share().whileTrue(new setArmMode(armSubsystem, armMode.resetPos));
+    opJoystick.options().whileTrue(new setWristMode(wristSubsystem, wristMode.resetpos));
 
     //Driver Controller
     joystick.leftTrigger().toggleOnTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking).alongWith(new setWristMode(wristSubsystem, wristMode.low))); // Intake intaking while the wrist goes to low position - runs at the same time
@@ -160,6 +162,7 @@ public class RobotContainer {
     NamedCommands.registerCommand("Wrist Low 05", new AutoWristLow(wristSubsystem).withTimeout(0.5));
     NamedCommands.registerCommand("Wrist Low 15", new AutoWristLow(wristSubsystem).withTimeout(1.5));
     NamedCommands.registerCommand("Wrist Home", new AutoWristHome(wristSubsystem).withTimeout(0.5));
+    NamedCommands.registerCommand("Arm pos3", new AutoArm(armSubsystem).withTimeout(2));
     //intake
     NamedCommands.registerCommand("Wrist Wait Intake", new AutoWristWaitIntake(wristSubsystem, intakeSubsystem).withTimeout(1.5));
     NamedCommands.registerCommand("Wrist Wait Intake 17", new AutoWristWaitIntake(wristSubsystem, intakeSubsystem).withTimeout(1.7));
@@ -171,11 +174,13 @@ public class RobotContainer {
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 0135", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(0.135));
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 1", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(1));
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 2", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(2));
+    NamedCommands.registerCommand("Wrist Low And Intake Intaking 25", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(2.5));
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 3", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(3));
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 4", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(4));
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 5", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(5));
     NamedCommands.registerCommand("Shoot", new delayButton(intakeSubsystem, shooterSubsystem).withTimeout(0.35));
     NamedCommands.registerCommand("Auto Shoot", new AutoShoot(intakeSubsystem, shooterSubsystem).withTimeout(1));
+    NamedCommands.registerCommand("Auto Align", new AutoAlignCommand(drivetrain).withTimeout(0.8));
   }
 
   public RobotContainer() {
@@ -186,17 +191,15 @@ public class RobotContainer {
     autochooser = AutoBuilder.buildAutoChooser("None");
     SmartDashboard.putData("Auto Chooser", autochooser);
 
-        // ALL COMMANDS ARE BEING RUN ON STARTUP, THIS IS THERE DEFAULT POSITION THEY WILL AUTOMATICALLY GO TO IF NOT BEING TOLD OTHERWISE
+    // ALL COMMANDS ARE BEING RUN ON STARTUP, THIS IS THERE DEFAULT POSITION THEY WILL AUTOMATICALLY GO TO IF NOT BEING TOLD OTHERWISE
     shooterSubsystem.setDefaultCommand(new setShooterMode(shooterSubsystem, shooterMode.outtakingSlow)); // shooter not running
     intakeSubsystem.setDefaultCommand(new setIntakeMode(intakeSubsystem, intakeMode.stop)); // intake not running
-    armRollersSubsytem.setDefaultCommand(new setArmRollersMode(armRollersSubsytem, armRollersMode.stop)); // arm intake not running
-    armSubsystem.setDefaultCommand(new setArmMode(armSubsystem, armMode.stop)); // wrist being at home position and not running
+    armSubsystem.setDefaultCommand(new setArmMode(armSubsystem, armMode.pos3)); // wrist being at home position and not running
     wristSubsystem.setDefaultCommand(new JoystickWrist(wristSubsystem,
-    () -> opJoystick.getRightY()
-    )); // Arm wrist being manually controlled by the Right joystick on the Y axis (vertical)
-    climbSubsystem.setDefaultCommand(new climbJoystick(climbSubsystem, 
     () -> opJoystick.getLeftY()
-    )); // Climb being manually controlled by the Left joystick on the Y axis (vertical)
+    )); // Arm wrist being manually controlled by the Right joystick on the Y axis (vertical)
+    rightClimbSubsystem.setDefaultCommand(new setRightClimbMode(rightClimbSubsystem, climbMode.stop));
+    leftClimbSubsystem.setDefaultCommand(new setLeftClimbMode(leftClimbSubsystem, climbTwoMode.stop));
     ledSubsystem.setDefaultCommand(new LEDCommand(ledSubsystem));
   }
 

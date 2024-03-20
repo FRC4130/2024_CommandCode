@@ -2,19 +2,32 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.352058558662572,
-      "y": 5.556201076038516
+      "x": 1.3966769976295312,
+      "y": 7.292819146208364
     },
-    "rotation": 0
+    "rotation": 0.0
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Center to shoot"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Amp start shoot then note"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
           }
         },
         {
@@ -30,28 +43,28 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Wait Intake"
+                  "name": "Wrist Wait Intake 1"
                 }
               },
               {
                 "type": "path",
                 "data": {
-                  "pathName": "shoot to center note"
+                  "pathName": "Amp note to shoot"
                 }
               }
             ]
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "note to shoot"
+            "name": "Auto Align"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "Auto Shoot"
           }
         },
         {
@@ -61,13 +74,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "center to far note v2"
+                  "pathName": "amp shoot to note 5"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 4"
+                  "name": "Wrist Low And Intake Intaking 3"
                 }
               }
             ]
@@ -76,7 +89,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "far note to center v2"
+            "pathName": "note 5 to shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
           }
         },
         {
@@ -88,6 +107,6 @@
       ]
     }
   },
-  "folder": null,
+  "folder": "V4",
   "choreoAuto": false
 }

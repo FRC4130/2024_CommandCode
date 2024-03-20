@@ -1,3 +1,4 @@
+
 package frc.robot.subsystems;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
@@ -30,6 +31,7 @@ public class Arm extends SubsystemBase{
         motionMagicConfigs.MotionMagicJerk = 1600;
 
         armWrist.getConfigurator().apply(talonFXConfigs);
+        armWrist.setVoltage(0);
     }
 
     public void doMagic(int voltage, double position){
@@ -47,15 +49,15 @@ public class Arm extends SubsystemBase{
     }
 
     public void pos1(){
-        doMagic(0, 0.11);
+        doMagic(0, -0.1);
     }
 
     public void pos2(){
-        doMagic(0, -1); //-27
+        doMagic(0, -22.8); //-27
     }
 
     public void pos3(){
-        doMagic(0, -1.26); //-1.26
+        doMagic(0, -48.3); //-1.26
     }
 
     public void resetPos(){

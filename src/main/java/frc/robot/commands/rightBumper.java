@@ -5,12 +5,11 @@ import frc.robot.Constants.armMode;
 import frc.robot.Constants.armRollersMode;
 import frc.robot.Constants.wristMode;
 import frc.robot.subsystems.Arm;
-import frc.robot.subsystems.ArmRollers;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Wrist;
 
 public class rightBumper extends SequentialCommandGroup{
-    public rightBumper(Wrist wristSub, Arm armSub, ArmRollers armRollersSub, Intake intake){
+    public rightBumper(Wrist wristSub, Arm armSub, Intake intake){
         addCommands(
             new setWristMode(wristSub, wristMode.low).withTimeout(1.5),
             new setArmMode(armSub, armMode.pos3).withTimeout(1),

@@ -1,0 +1,123 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.5053379907329615,
+      "y": 4.081259900411539
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "wall to rotated shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "rotated shoot to far HP note"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 4"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "far HP note to rotated shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Wait Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "amp 2nd shot to note"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "amp 3rd note to shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "V4",
+  "choreoAuto": false
+}

@@ -1,0 +1,130 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.352058558662572,
+      "y": 5.556201076038516
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Center to shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Wait Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "shoot to center note"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "note to shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "center to far note v2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 3"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "far note to center v2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "shoot to amp note far"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 4"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "folder": "V4",
+  "choreoAuto": false
+}

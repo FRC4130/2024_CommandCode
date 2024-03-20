@@ -1,0 +1,74 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.5053379907329615,
+      "y": 4.081259900411539
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "wall to rotated shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "rotated shoot to HP note1"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "HP note to rotated shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "V4",
+  "choreoAuto": false
+}

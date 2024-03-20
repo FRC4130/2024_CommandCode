@@ -70,11 +70,15 @@ public class LED extends SubsystemBase{
         mCANdle.setLEDs(0, 255, 0);
     }
 
+    public void nothing(){
+        mCANdle.setLEDs(0, 0, 0);
+    }
+
     public void LEDS(){
         if(Intake.intake.getForwardLimit().getValue() == ForwardLimitValue.ClosedToGround){
             green();
         } else{
-            Idle();
+            nothing();;
         }
     }
 }
