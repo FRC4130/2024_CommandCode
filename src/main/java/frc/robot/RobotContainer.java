@@ -118,10 +118,10 @@ public class RobotContainer {
     opJoystick.cross().toggleOnTrue(new setArmMode(armSubsystem, armMode.pos1)); // home postition amp arm
     opJoystick.circle().whileTrue(new setIntakeMode(intakeSubsystem, intakeMode.intaking));
     //BUMPERS AND TRIGGERS
-    opJoystick.L1().whileTrue(new setLeftClimbMode(leftClimbSubsystem, climbTwoMode.upClimbTwo));
-    opJoystick.L2().whileTrue(new setLeftClimbMode(leftClimbSubsystem, climbTwoMode.downClimbTwo));
-    opJoystick.R1().whileTrue(new setRightClimbMode(rightClimbSubsystem, climbMode.upClimb));
-    opJoystick.R2().whileTrue(new setRightClimbMode(rightClimbSubsystem, climbMode.downClimb));
+    opJoystick.R1().whileTrue(new setLeftClimbMode(leftClimbSubsystem, climbTwoMode.upClimbTwo));
+    opJoystick.R2().whileTrue(new setLeftClimbMode(leftClimbSubsystem, climbTwoMode.downClimbTwo));
+    opJoystick.L1().whileTrue(new setRightClimbMode(rightClimbSubsystem, climbMode.upClimb));
+    opJoystick.L2().whileTrue(new setRightClimbMode(rightClimbSubsystem, climbMode.downClimb));
     //SHARE N OPTIONS
     opJoystick.share().whileTrue(new setArmMode(armSubsystem, armMode.resetPos));
     opJoystick.options().whileTrue(new setWristMode(wristSubsystem, wristMode.resetpos));
@@ -180,7 +180,9 @@ public class RobotContainer {
     NamedCommands.registerCommand("Wrist Low And Intake Intaking 5", new AutoWristLowAndIntakeIntaking(wristSubsystem, intakeSubsystem).withTimeout(5));
     NamedCommands.registerCommand("Shoot", new delayButton(intakeSubsystem, shooterSubsystem).withTimeout(0.35));
     NamedCommands.registerCommand("Auto Shoot", new AutoShoot(intakeSubsystem, shooterSubsystem).withTimeout(1));
+    NamedCommands.registerCommand("Auto Shoot Two", new AutoShootTwo(intakeSubsystem, shooterSubsystem).withTimeout(1.2));
     NamedCommands.registerCommand("Auto Align", new AutoAlignCommand(drivetrain).withTimeout(0.8));
+    NamedCommands.registerCommand("Auto Align 1", new AutoAlignCommand(drivetrain).withTimeout(1));
   }
 
   public RobotContainer() {

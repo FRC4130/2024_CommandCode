@@ -68,7 +68,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 3"
+                  "name": "Wrist Low And Intake Intaking 25"
                 }
               }
             ]
@@ -90,6 +90,31 @@
           "type": "named",
           "data": {
             "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "amp shoot to note 4"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wrist Home"
           }
         }
       ]

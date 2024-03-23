@@ -39,7 +39,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
     /* Blue alliance sees forward as 0 degrees (toward red alliance wall) */
     private final Rotation2d BlueAlliancePerspectiveRotation = Rotation2d.fromDegrees(0); //0
     /* Red alliance sees forward as 180 degrees (toward blue alliance wall) */
-    private final Rotation2d RedAlliancePerspectiveRotation = Rotation2d.fromDegrees(180); //180
+    private final Rotation2d RedAlliancePerspectiveRotation = Rotation2d.fromDegrees(0); //180
     /* Keep track if we've ever applied the operator perspective before or not */
     private boolean hasAppliedOperatorPerspective = false;
 
@@ -117,17 +117,17 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                                             TunerConstants.kSpeedAt12VoltsMps,
                                             driveBaseRadius,
                                             new ReplanningConfig()),
-            ()-> {
+            ()-> DriverStation.getAlliance().orElse(Alliance.Blue)==Alliance.Red,//{
                 // Boolean supplier that controls when the path will be mirrored for the red alliance
                 // This will flip the path being followed to the red side of the field.
                 // THE ORIGIN WILL REMAIN ON THE BLUE SIDE
-  
-                var alliance = DriverStation.getAlliance();
-                if (alliance.isPresent()) {
-                  return alliance.get() == DriverStation.Alliance.Red;
-                }
-                return false;
-              },
+                
+                // var alliance = DriverStation.getAlliance();
+                // if (alliance.isPresent()) {
+                //   return alliance.get() == DriverStation.Alliance.Red;
+                // }
+                // return false;
+            //   },
             this); // Subsystem for requirements
     }
 

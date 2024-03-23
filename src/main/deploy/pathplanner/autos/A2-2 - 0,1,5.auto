@@ -27,12 +27,6 @@
         {
           "type": "named",
           "data": {
-            "name": "Auto Align"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
             "name": "Auto Shoot"
           }
         },
@@ -58,12 +52,6 @@
         {
           "type": "named",
           "data": {
-            "name": "Auto Align"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
             "name": "Auto Shoot"
           }
         },
@@ -80,7 +68,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 3"
+                  "name": "Wrist Low And Intake Intaking 25"
                 }
               }
             ]
@@ -107,6 +95,6 @@
       ]
     }
   },
-  "folder": "V4",
+  "folder": null,
   "choreoAuto": false
 }
