@@ -37,7 +37,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Wait Intake 17"
+                  "name": "Wrist Wait Intake"
                 }
               },
               {
@@ -68,7 +68,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 2"
+                  "name": "Wrist Low And Intake Intaking 1"
                 }
               }
             ]
@@ -93,22 +93,22 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "shoot to HP note to shoot"
+                  "pathName": "amp shoot to note 4"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 25"
+                  "name": "Wrist Low And Intake Intaking 2"
                 }
               }
             ]
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Auto Align"
+            "pathName": "note 4 to shoot"
           }
         },
         {

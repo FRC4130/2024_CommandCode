@@ -7,6 +7,8 @@ package frc.robot.commands;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrain.SwerveDriveState;
 
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.CommandSwerveDrivetrain;
 import frc.robot.Constants;
@@ -33,6 +35,7 @@ public class AutoAlignCommand extends Command {
   public void execute() {
       tx = LimelightHelpers.getTX("limelight");
       SwerveDriveState pose = _drivetrain.getState();
+      var alliance = DriverStation.getAlliance();
 
       double targetOffsetAngle_Vertical = LimelightHelpers.getTY("limelight");
 
@@ -62,21 +65,33 @@ public class AutoAlignCommand extends Command {
         Constants.k_drive_target = 0; //stop moving
       }
 
+    if (alliance.get() == DriverStation.Alliance.Blue) {
+
       if (tx <= 25) { //blue alliance
         Constants.k_steering_target = new Rotation2d(Math.toRadians(pose.Pose.getRotation().getDegrees() - tx));
-        //SmartDashboard.putNumber("Steering target angle: ", pose.Pose.getRotation().getDegrees() - tx);
       }
       else {
         Constants.k_steering_target = new Rotation2d(Math.toRadians(pose.Pose.getRotation().getDegrees()));
-        //SmartDashboard.putNumber("Steering target angle: ", pose.Pose.getRotation().getDegrees());
       }
+    } else { //Red alliance
+      if (tx <= 25) {
+        if(tx >= 0){ //positive tx
+          Constants.k_steering_target = new Rotation2d(Math.toRadians(pose.Pose.getRotation().getDegrees() - tx + 180));
+        } else { //negtive tx
+          Constants.k_steering_target = new Rotation2d(Math.toRadians(Math.abs(pose.Pose.getRotation().getDegrees() - tx - 360)));
+        }
+      }
+      else {
+        Constants.k_steering_target = new Rotation2d(Math.toRadians(pose.Pose.getRotation().getDegrees()));
+      }
+    }
 
     //SmartDashboard.putNumber("Steering target angle: ", pose.Pose.getRotation().getDegrees());  
     System.out.println("limelight tx: " + tx);
-    System.out.println("limelight ty: " + targetOffsetAngle_Vertical);
+    //System.out.println("limelight ty: " + targetOffsetAngle_Vertical);
     System.out.println("Rotation2d: " +_drivetrain.getState().Pose.getRotation().getDegrees());
-    System.out.println("LLDistance: " + k_LLDistanceToAprilTag);
-    System.out.println("Distance to move: " + (k_LLDistanceToAprilTag - targetDistance));
+    //System.out.println("LLDistance: " + k_LLDistanceToAprilTag);
+    //System.out.println("Distance to move: " + (k_LLDistanceToAprilTag - targetDistance));
   }
 
   // Called once the command ends or is interrupted.

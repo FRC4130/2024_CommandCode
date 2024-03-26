@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.3089291736778261,
-      "y": 5.531335051274091
+      "x": 1.4,
+      "y": 4.081259900411539
     },
     "rotation": 0
   },
@@ -14,13 +14,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Center to shoot"
+            "pathName": "wall to rotated shoot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Auto Shoot"
+            "name": "Shoot"
           }
         },
         {
@@ -30,7 +30,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Shoot to HP Note1"
+                  "pathName": "rotated shoot to HP note"
                 }
               },
               {
@@ -61,44 +61,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "rotated shoot to note 2"
+                  "pathName": "rotated shoot to note 6"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 25"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "shoot to note 1.2"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Low And Intake Intaking 2"
+                  "name": "Wrist Wait Intake Two"
                 }
               }
             ]
@@ -107,7 +76,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "note 1 to rotated shoot"
+            "pathName": "note 6 to shoot"
           }
         },
         {

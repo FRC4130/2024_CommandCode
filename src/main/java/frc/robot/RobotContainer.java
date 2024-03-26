@@ -135,7 +135,7 @@ public class RobotContainer {
 
 
     //POV buttons slow mode auto rotate to zero
-    fieldcentricfacingangle.HeadingController = new PhoenixPIDController(10.0, 0, 0);
+    fieldcentricfacingangle.HeadingController = new PhoenixPIDController(5, 0, 0);//was 10
     SendableRegistry.setName(fieldcentricfacingangle.HeadingController, "AutoAlign", "fcfa HeadingController");
     Rotation2d alignangle = Rotation2d.fromDegrees(0); //sets the angle the robot should face to zero
     joystick.pov(0).whileTrue(drivetrain.applyRequest(()->fieldcentricfacingangle.withVelocityX(POVSpeed).withVelocityY(0).withTargetDirection(alignangle)));
@@ -165,6 +165,9 @@ public class RobotContainer {
     NamedCommands.registerCommand("Arm pos3", new AutoArm(armSubsystem).withTimeout(2));
     //intake
     NamedCommands.registerCommand("Wrist Wait Intake", new AutoWristWaitIntake(wristSubsystem, intakeSubsystem).withTimeout(1.5));
+    NamedCommands.registerCommand("Wrist Wait Intake Two", new AutoWristWaitIntakeTwo(wristSubsystem, intakeSubsystem).withTimeout(3.4));
+    NamedCommands.registerCommand("Wrist Wait Intake Three", new AutoWristWaitIntakeThree(wristSubsystem, intakeSubsystem).withTimeout(3.4));
+    NamedCommands.registerCommand("Wrist Wait Intake Three 2", new AutoWristWaitIntakeThree(wristSubsystem, intakeSubsystem).withTimeout(3));
     NamedCommands.registerCommand("Wrist Wait Intake 17", new AutoWristWaitIntake(wristSubsystem, intakeSubsystem).withTimeout(1.7));
     NamedCommands.registerCommand("Wrist Wait Intake 1", new AutoWristWaitIntake(wristSubsystem, intakeSubsystem).withTimeout(2));
     NamedCommands.registerCommand("Intake Intaking", new AutoIntakeIntaking(intakeSubsystem).withTimeout(2));

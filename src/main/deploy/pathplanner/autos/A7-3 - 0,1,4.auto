@@ -37,7 +37,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Wait Intake 17"
+                  "name": "Wrist Low And Intake Intaking 15"
                 }
               },
               {
@@ -56,34 +56,9 @@
           }
         },
         {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "amp shoot to center note"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Low And Intake Intaking 2"
-                }
-              }
-            ]
-          }
-        },
-        {
           "type": "path",
           "data": {
-            "pathName": "center1 note to shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot"
+            "pathName": "rotated to straight"
           }
         },
         {
@@ -93,7 +68,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "shoot to HP note to shoot"
+                  "pathName": "S2N42S"
                 }
               },
               {
@@ -103,12 +78,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Align"
           }
         },
         {
