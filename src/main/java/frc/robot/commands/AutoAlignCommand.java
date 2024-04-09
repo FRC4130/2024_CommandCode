@@ -15,7 +15,7 @@ import frc.robot.LimelightHelpers;
 
 public class AutoAlignCommand extends Command {
   double tx = 0;
-  double targetDistance = 75; //target distance in inches from the speaker
+  double targetDistance = 70; //target distance in inches from the speaker
   double driveSpeed = 1; //speed used when driving towards or away from target m/sec
   CommandSwerveDrivetrain _drivetrain;
   /** Creates a new AutoAlignCommand. */

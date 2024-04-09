@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4,
-      "y": 4.081259900411539
+      "x": 1.3089291736778261,
+      "y": 5.531335051274091
     },
     "rotation": 0
   },
@@ -14,13 +14,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "wall to rotated shoot"
+            "pathName": "Center to shoot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "Auto Shoot"
           }
         },
         {
@@ -28,24 +28,18 @@
           "data": {
             "commands": [
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "rotated shoot to HP note"
+                  "name": "Wrist Wait Intake"
                 }
               },
               {
-                "type": "named",
+                "type": "path",
                 "data": {
-                  "name": "Wrist Low And Intake Intaking 15"
+                  "pathName": "shoot to center note"
                 }
               }
             ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "HP note to rotated shoot"
           }
         },
         {
@@ -61,28 +55,41 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "rotated shoot to note 6"
+                  "pathName": "B6 shoot to note 7"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Wrist Wait Intake Two"
+                  "name": "Wrist Wait Intake Three 2"
                 }
               }
             ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "C note 6 to rotated shoot"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "B6 note 7 to shoot low"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 0135"
+                }
+              }
+            ]
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Auto Shoot"
+            "name": "Auto Low Shoot"
           }
         }
       ]

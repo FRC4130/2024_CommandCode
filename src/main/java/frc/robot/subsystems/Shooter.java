@@ -39,7 +39,7 @@ public class Shooter extends SubsystemBase{
     }
 
     public void outtakingSlightlyFasterThanSlow(){
-        setSpeedShooter(0.25, 0.25);
+        setSpeedShooter(0.20, 0.20);
     }
 
     public void resetpos(){}

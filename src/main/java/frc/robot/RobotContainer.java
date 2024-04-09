@@ -168,6 +168,8 @@ public class RobotContainer {
     NamedCommands.registerCommand("Wrist Wait Intake Two", new AutoWristWaitIntakeTwo(wristSubsystem, intakeSubsystem).withTimeout(3.4));
     NamedCommands.registerCommand("Wrist Wait Intake Three", new AutoWristWaitIntakeThree(wristSubsystem, intakeSubsystem).withTimeout(3.4));
     NamedCommands.registerCommand("Wrist Wait Intake Three 2", new AutoWristWaitIntakeThree(wristSubsystem, intakeSubsystem).withTimeout(3));
+    NamedCommands.registerCommand("Wrist Wait Intake Three 25", new AutoWristWaitIntakeThree(wristSubsystem, intakeSubsystem).withTimeout(2.5));
+    NamedCommands.registerCommand("Wrist Wait Intake Three 4", new AutoWristWaitIntakeThree(wristSubsystem, intakeSubsystem).withTimeout(2));
     NamedCommands.registerCommand("Wrist Wait Intake 17", new AutoWristWaitIntake(wristSubsystem, intakeSubsystem).withTimeout(1.7));
     NamedCommands.registerCommand("Wrist Wait Intake 1", new AutoWristWaitIntake(wristSubsystem, intakeSubsystem).withTimeout(2));
     NamedCommands.registerCommand("Intake Intaking", new AutoIntakeIntaking(intakeSubsystem).withTimeout(2));
@@ -184,6 +186,7 @@ public class RobotContainer {
     NamedCommands.registerCommand("Shoot", new delayButton(intakeSubsystem, shooterSubsystem).withTimeout(0.35));
     NamedCommands.registerCommand("Auto Shoot", new AutoShoot(intakeSubsystem, shooterSubsystem).withTimeout(1));
     NamedCommands.registerCommand("Auto Shoot Two", new AutoShootTwo(intakeSubsystem, shooterSubsystem).withTimeout(1.2));
+    NamedCommands.registerCommand("Auto Low Shoot", new AutoLowShoot(intakeSubsystem, shooterSubsystem).withTimeout(1));
     NamedCommands.registerCommand("Auto Align", new AutoAlignCommand(drivetrain).withTimeout(0.8));
     NamedCommands.registerCommand("Auto Align 1", new AutoAlignCommand(drivetrain).withTimeout(1));
   }

@@ -55,7 +55,7 @@ public class Wrist extends SubsystemBase{
         doMagic(15, 0);
     }
     public void low(){
-        doMagic(0, -32.77); //55
+        doMagic(0, -34); //55
     }
     public void mid (){
         doMagic(20, -24);

@@ -10,7 +10,7 @@ import frc.robot.subsystems.Wrist;
 public class AutoWristWaitIntakeTwo extends SequentialCommandGroup{
     public AutoWristWaitIntakeTwo(Wrist wristSub, Intake intakeSub){
     addCommands(
-        new WaitCommand(2),
+        new WaitCommand(1.5),
         new setWristMode(wristSub, wristMode.autoLow).withTimeout(0.5),
         new setWristMode(wristSub, wristMode.autoLow).alongWith(new setIntakeMode(intakeSub, intakeMode.autoIntaking))
     );

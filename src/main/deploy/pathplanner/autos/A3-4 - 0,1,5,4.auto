@@ -2,19 +2,51 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4,
-      "y": 4.081259900411539
+      "x": 1.3966769976295312,
+      "y": 7.292819146208364
     },
-    "rotation": 0
+    "rotation": 0.0
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "wall to rotated shoot"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Amp start shoot then note"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Wait Intake 1"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Amp note to shoot"
+                }
+              }
+            ]
           }
         },
         {
@@ -30,75 +62,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "shoot to note 3"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Low And Intake Intaking 2"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "note 3 to shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "EASY rotated shoot to center note v2"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Wrist Low And Intake Intaking 2"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 0.15
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "EASY note to shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot Two"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "EASY note 2 to note 1"
+                  "pathName": "amp shoot to note 5"
                 }
               },
               {
@@ -111,15 +75,59 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "EASY note 1 to shoot"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "note 5 to shoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 0135"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Align"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "Auto Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "amp shoot to note 4"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Wrist Low And Intake Intaking 2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wrist Home"
           }
         }
       ]
